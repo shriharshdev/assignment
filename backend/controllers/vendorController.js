@@ -22,7 +22,7 @@ exports.getVendor = async(req,res) => {
 }
 
 //create new vendor
-exports.createVendor = async(req,res) =>{
+exports.createVendor = async(req,res) => {
     const {name, accountNum, bankName, address, city, country, code} = req.body
     try{
         const vendor = await Vendor.create({name, accountNum, bankName, address, city, country, code})
@@ -33,6 +33,31 @@ exports.createVendor = async(req,res) =>{
 }
 
 //delete a vendor
+exports.deleteVendor = async(req,res) => {
+    const {id} = req.params
 
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error:"No such vendor"})
+    }
+    const vendor = await Vendor.findOneAndDelete({_id: id})
+    if(!vendor){
+        return res.status(404).json({error:"No such vendor"})
+    }
+    res.status(200).json(vendor)
+}
 
 //update a vendor
+exports.updateVendor = async(req,res) => {
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error:"No such vendor"})
+    }
+    const vendor = await Vendor.findByIdAndUpdate({_id: id},{
+        ...req.body
+    })
+    if(!vendor){
+        return res.status(404).json({error:"No such vendor"})
+    }
+    res.status(200).json(vendor)
+}
