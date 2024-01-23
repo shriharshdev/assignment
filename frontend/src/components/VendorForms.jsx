@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function VendorForms() {
+
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     accountNum: '',
@@ -36,6 +39,7 @@ function VendorForms() {
         code: ''
       });
       setError(null);
+      navigate("/")
     } catch (error) {
       console.log(error);
       setError("Error submitting the form. Please check your inputs and try again.");

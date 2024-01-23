@@ -1,8 +1,10 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from '../pages/Home'
-import Navbar from './components/Navbar'
+import Vendors from '../pages/Vendors'
 import VendorForms from './components/VendorForms'
 import VendorDetails from './components/VendorDetails'
+import VendorEdit from './components/VendorEdit'
+import Landing from '../pages/Landing'
+import Navbar from './components/Navbar'
 
 
 function App() {
@@ -14,15 +16,23 @@ function App() {
           <Routes>
             <Route 
               path='/'
-              element={<Home/>}
+              element={<Landing/>}
+            />
+            <Route 
+              path='/vendors'
+              element={<Vendors/>}
             />
             <Route 
               path='/add'
               element={<VendorForms/>}
             />
             <Route 
-              path='bank/:id'
+              path='/bank/:id'
               element={<VendorDetails/>}
+            />
+            <Route
+              path='/edit/:id'
+              element={<VendorEdit/>}
             />
           </Routes>
         </div>

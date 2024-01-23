@@ -19,7 +19,7 @@ app.use(cors())
 
 app.use('/bank',vendorRoutes)
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://shriharsh:SFkJsm6neqY6NE3V@cluster0.nyaboar.mongodb.net/assignment?retryWrites=true&w=majority")
 .then(()=>{
     console.log("Database successfully connected...")
 })
