@@ -10,7 +10,7 @@ function VendorDetails() {
       const shouldDelete = window.confirm('Are you sure you want to delete this vendor?');
       if (shouldDelete) {
         await axios.delete(`http://localhost:3000/bank/${id}`);
-        navigate('/');
+        navigate('/vendors');
       }
     } catch (error) {
       console.log(error);

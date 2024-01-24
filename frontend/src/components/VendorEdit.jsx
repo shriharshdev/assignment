@@ -59,7 +59,7 @@ function VendorEdit() {
         code: '',
       });
       setError(null);
-      navigate("/")
+      navigate("/vendors")
     } catch (error) {
       console.error('Error submitting form:', error);
       setError('Error updating vendor. Please check your inputs and try again.');

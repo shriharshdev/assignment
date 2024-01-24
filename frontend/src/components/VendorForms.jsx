@@ -39,7 +39,7 @@ function VendorForms() {
         code: ''
       });
       setError(null);
-      navigate("/")
+      navigate("/vendors")
     } catch (error) {
       console.log(error);
       setError("Error submitting the form. Please check your inputs and try again.");
